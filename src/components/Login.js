@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BE_URL } from "../App";
+import { Link } from "react-router-dom";
 
 function Login() {
     const navigate = useNavigate()
@@ -28,13 +29,15 @@ function Login() {
         }).then((res) => res.json())
         .then((result) => {
             console.log('result==', result);
+            if(result.error) {
+                throw new Error(result.error)
+            }
             navigate('/welcome',{state: result})
         }).catch((err) => {
             console.log(' == error', err);
             setError(err.message)
         })
         console.log('15==', userData);
-
     }
     return (
         <div>
@@ -48,7 +51,11 @@ function Login() {
                 </div>
                 <button type="submit" >Submit</button>
             </form>
-            <h3>{error}</h3>
+            <div>
+                {error.split(" ").includes('Account')
+                    ? <h3><Link to={"/register"}>{error}</Link></h3>
+                    : <h3>{error}</h3>}
+            </div>
         </div>
     )
 }

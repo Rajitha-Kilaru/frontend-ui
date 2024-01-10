@@ -1,0 +1,22 @@
+.card_container {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    width: 100%;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 15px;
+
+    .card {
+        padding: 10px;
+
+        .card_content {
+            max-height: 120px;
+            overflow-y: auto;
+        }
+
+        .card_icons {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

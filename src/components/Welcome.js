@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { BE_URL } from "../App";
 import { useState } from "react";
+import './Welcome.scss'
 
 function Welcome() {
     const { state } = useLocation()
@@ -21,14 +22,19 @@ function Welcome() {
             </div>
             <div><h5>{error}</h5></div>
             <button onClick={getAllUsers}>Get All users</button>
-            <div>
+            <div className="card_container">
                 {
-                    users.map(user => {
-                        return <div key={user.id} style={{border: '1px solid #888'}}>
-                            <h3>Sl.No -{user.id}</h3>
-                            <h3>Name: {user.name}</h3>
-                            <h3>Mobile: {user.mobile}</h3>
-                            <h3>Email: {user.email}</h3>
+                    users.map((user, index) => {
+                        return <div className="card" key={index} style={{ border: '1px solid #888' }}>
+                            <div className="card_content">
+                                <p>Name: {user.name}</p>
+                                <p>Mobile: {user.mobile}</p>
+                                <p>Email: {user.email}</p>
+                            </div>
+                            <div className="card_icons">
+                                <i class="fa-solid fa-trash"></i>
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </div>
                         </div>
                     })
                 }
