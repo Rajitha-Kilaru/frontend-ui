@@ -27,13 +27,11 @@ function Register() {
         }).then((res) => {
             return res.json()
         }).then((result) => {
-            // console.log('result==', result);
             if (result.error) {
                 throw new Error(result.error);
             }
             navigate('/login')
         }).catch((err) => {
-            // console.error('36==', err.message);
             setError(err.message)
         })
     }

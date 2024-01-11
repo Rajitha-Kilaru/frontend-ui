@@ -17,6 +17,10 @@
         .card_icons {
             display: flex;
             justify-content: space-between;
+
+            i {
+                cursor: pointer;
+            }
         }
     }
 }

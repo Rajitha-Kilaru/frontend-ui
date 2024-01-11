@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 function Login() {
     const navigate = useNavigate()
 
-
     const [userData, setUserData] = useState({
         email: '',
         password: '',
@@ -16,8 +15,8 @@ function Login() {
     const handleChange = (e) => {
         setUserData({ ...userData, [e.target.name]: e.target.value })
     }
-    const handleSubmit = (e) => {
 
+    const handleSubmit = (e) => {
         e.preventDefault();
         fetch(BE_URL+'/login',{
             method: 'POST',
@@ -25,20 +24,17 @@ function Login() {
             headers: {
                 "Content-Type":"application/json"
             }
-
         }).then((res) => res.json())
         .then((result) => {
-            console.log('result==', result);
             if(result.error) {
                 throw new Error(result.error)
             }
             navigate('/welcome',{state: result})
         }).catch((err) => {
-            console.log(' == error', err);
             setError(err.message)
         })
-        console.log('15==', userData);
     }
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
