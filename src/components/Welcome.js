@@ -58,7 +58,7 @@ function Welcome() {
                 <h3>Mobile: {state.mobile}</h3>
                 <h3>Email: {state.email}</h3>
             </div>}
-            <div><h5>{error}</h5></div>
+            {error && <div><h5>{error}</h5></div>}
             <button onClick={getAllUsers}>Get All users</button>
             <div className="card_container">
                 {delErr && <p>{delErr}</p>}

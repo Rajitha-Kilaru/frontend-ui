@@ -1,0 +1,42 @@
+.login {
+    height: 100vh;
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        width: 180px;
+
+        .log_title {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            color: darkmagenta;
+        }
+
+        .login_cont {
+            div {
+                padding-bottom: 20px;
+            }
+        }
+
+        .login_btn {
+            display: flex;
+            justify-content: center;
+        }
+
+        .err_cont {
+            display: flex;
+            justify-content: center;
+
+            h3 {
+                font-family: sans-serif;
+            }
+
+            .err_msg {
+                color: rgb(255, 38, 0);
+            }
+        }
+    }
+}
