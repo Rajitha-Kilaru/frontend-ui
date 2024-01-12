@@ -6,6 +6,7 @@ import Modal from "../helpers/Modal";
 
 function Welcome() {
     const { state } = useLocation()
+    console.log('8==', state);
     const [users, setUsers] = useState([])
     const [error, setError] = useState('')
     const [editableData, setEditableData] = useState()
