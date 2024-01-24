@@ -20,9 +20,9 @@ const Modal = ({ setShowModal, editableData, setUsers }) => {
     }, [editableData])
 
     const handleSaveBtn = () => {
-        fetch(BE_URL + '/updateUser', {
+        fetch(BE_URL + '/auth/updateUser', {
             method: 'PUT',
-            body: JSON.stringify(formEditData),
+            body: JSON.stringify({ id: formEditData._id, data: formEditData }),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -33,6 +33,15 @@ const Modal = ({ setShowModal, editableData, setUsers }) => {
                 throw new Error(result.error);
             }
             setUsers(result)
+            // setUsers((prev) => {
+            //     console.log("37==", prev)
+            //     return prev.map((item) => {
+            //         if (item._id === result._id) {
+            //             return item = result
+            //         }
+            //         return item
+            //     })
+            // })
             setShowModal(false)
             return result;
         }).catch((err) => {

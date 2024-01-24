@@ -19,7 +19,7 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(BE_URL + '/login', {
+        fetch(BE_URL + '/auth/login', {
             method: 'POST',
             body: JSON.stringify(userData),
             headers: {
@@ -30,6 +30,7 @@ function Login() {
                 if (result.error) {
                     throw new Error(result.error)
                 }
+                console.log('33==', result);
                 navigate('/welcome', { state: result })
             }).catch((err) => {
                 setError(err.message)

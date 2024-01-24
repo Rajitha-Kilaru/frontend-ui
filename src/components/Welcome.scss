@@ -26,4 +26,20 @@ div {
             }
         }
     }
+
+    .chess_container {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto auto auto;
+        gap: 5px;
+        .chess {
+            height: 50px;
+            width: 50px;
+        }
+        .chess:nth-child(even) {
+            background-color: rgb(255, 238, 0);
+        }
+        .chess:nth-child(odd) {
+            background-color: brown;
+        }
+    }
 }

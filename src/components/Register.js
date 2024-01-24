@@ -20,7 +20,7 @@ function Register() {
     const handleSubmit = (e) => {
         e.preventDefault()
         setError('')
-        fetch(BE_URL + '/register', {
+        fetch(BE_URL + '/auth/register', {
             method: 'POST',
             body: JSON.stringify(userData),
             headers: {
